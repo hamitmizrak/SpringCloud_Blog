@@ -1,0 +1,11 @@
+#server:
+#  port: 8500
+
+spring:
+  application:
+    name: eureka-discovery-server
+
+  cloud:
+    config:
+      profile: native
+      uri: http://localhost:8888

@@ -64,6 +64,7 @@
     <modules>
         <module>service-parent</module>
         <module>config-server</module>
+        <module>eureka-discovery-server</module>
     </modules>
 
 

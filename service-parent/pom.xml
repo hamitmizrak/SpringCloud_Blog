@@ -36,7 +36,6 @@
     </properties>
 
     <!--buradaki kütüphaneler diğer servisler için ortak olacak -->
-    <!--dependencies-->
     <dependencies>
         <!--for spring cloud-->
         <dependency>
@@ -50,7 +49,15 @@
             <version>2.2.1</version>
         </dependency>
 
-       <!-- other libraries-->
+        <!--eureka icin dependency-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <version>1.4.7.RELEASE</version>
+        </dependency>
+
+
+        <!-- other libraries-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
