@@ -2,40 +2,81 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+
+    <!--parent-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.0</version>
+        <version>2.2.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
+    <!-- group-artifact-version -->
     <groupId>com.hamitmizrak</groupId>
     <artifactId>SpringCloud_Blog</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
+    <!--name description-->
     <name>SpringCloud_Blog</name>
     <description>SpringCloud_Blog</description>
+
+    <!--properties-->
+    <!-- https://spring.io/projects/spring-cloud-->
     <properties>
-        <java.version>17</java.version>
+        <java.version>11</java.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <spring.cloud.version>Hoxton.RELEASE</spring.cloud.version>
     </properties>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 
+    <!--dependencyManagement-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!--developers-->
+    <developers>
+        <developer>
+            <id>hamitm</id>
+            <name>HamitMizrak</name>
+            <email>hamitmizrak@gmail.com</email>
+            <roles>
+                <role>
+                    Sr. Full Stack Developer Hamit Mizrak
+                </role>
+            </roles>
+        </developer>
+    </developers>
+
+    <!--modules-->
+    <modules>
+        <module>service-parent</module>
+    </modules>
+
+
+    <!--build-->
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.yml</include>
+                    <include>**/*.json</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
-
 </project>
