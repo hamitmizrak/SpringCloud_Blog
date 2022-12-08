@@ -26,8 +26,16 @@ public class AccountEntity implements Serializable {
     private String id= UUID.randomUUID().toString();
 
     @Setter
-    @Column(value="user_name")
+    @Column(value="name")
+    private String name;
+
+    @Setter
+    @Column(value="username")
     private String username;
+
+    @Setter
+    @Column(value="surname")
+    private String surname;
 
     @Setter
     @Column(value="user_password")

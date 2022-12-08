@@ -1,7 +1,7 @@
 package com.hamitmizrak.accountservice.ui.api;
 
-import com.hamitmizrak.accountservice.service.AccountService;
-import com.hamitmizrak.accountservice.data.entity.AccountEntity;
+import com.hamitmizrak.accountservice.business.dto.AccountDto;
+import com.hamitmizrak.accountservice.business.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,28 +22,28 @@ public class AccountApi {
     //http:localhost:8080/account
     //CREATE
     @PostMapping
-    public ResponseEntity<AccountEntity> save(@RequestBody AccountEntity account) {
+    public ResponseEntity<AccountDto> save(@RequestBody AccountDto account) {
         return ResponseEntity.ok(accountService.save(account));
     }
 
     //http:localhost:8080/account
     //LIST
     @GetMapping
-    public ResponseEntity<List<AccountEntity>> getAllList() {
+    public ResponseEntity<List<AccountDto>> getAllList() {
         return ResponseEntity.ok(accountService.getAllList());
     }
 
     //http:localhost:8080/account/1
     //FIND
     @GetMapping("/{id}")
-    public ResponseEntity<AccountEntity> getFindId(@PathVariable("id")  String id) {
+    public ResponseEntity<AccountDto> getFindId(@PathVariable("id")  String id) {
         return ResponseEntity.ok(accountService.getFindId(id));
     }
 
     //http:localhost:8080/account/1
     //UPDATE
     @PutMapping("/{id}")
-    public ResponseEntity<AccountEntity> update(@PathVariable("id")  String id, @RequestBody AccountEntity account) {
+    public ResponseEntity<AccountDto> update(@PathVariable("id")  String id, @RequestBody AccountDto account) {
         return ResponseEntity.ok(accountService.update(id,account));
     }
 
@@ -51,7 +51,7 @@ public class AccountApi {
     //DELETE
     //delete id yeterli obje göndermiyorum ki serveri yormamayayımö
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id")  String id) {
+    public void delete(@PathVariable(name = "id")  String id) {
         accountService.delete(id);
     }
 }
