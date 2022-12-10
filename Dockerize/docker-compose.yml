@@ -3,6 +3,21 @@
 version: '3.1'
 
 services:
+
+  #  jenkins
+  jenkins:
+    image: jenkins/jenkins:lts
+    privileged: true
+    user: root
+    ports:
+      - '7777:8080'
+      - '50000:50000'
+    container_name: jenkins
+    volumes:
+      - /home/${myname}/jenkins_compose/jenkins_configuration:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  # cassandra
   cassandra:
     image: cassandra
     ports:
@@ -16,6 +31,7 @@ services:
 #    ports:
 #      - '3306:3306'
 
+  # elasticsearch
   elasticsearch:
     image: elasticsearch:7.5.0
     ports:
