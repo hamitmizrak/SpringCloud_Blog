@@ -29,6 +29,12 @@
 
     <!--dependencies-->
     <dependencies>
+        <!--zipkin ekledim-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
+
         <!--  eureka server ekledim-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

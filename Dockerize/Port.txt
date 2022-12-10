@@ -1,0 +1,6 @@
+ElasticSearch ==> 9200
+Mysql         ==> 3306
+
+Eureka        ==> 8500
+Account       ==> 8501
+Search        ==> 8502

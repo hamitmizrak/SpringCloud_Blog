@@ -1,3 +1,5 @@
+# docker-compose -f  konumAdi/docker-compose.yml up -d
+# docker stop $(docker ps -qa)
 version: '3.1'
 
 services:
@@ -5,3 +7,19 @@ services:
     image: cassandra
     ports:
       - '9042:9042'
+
+#  mysql:
+#    image: mysql
+#    restart: always
+#    environment:
+#      MYSQL_ROOT_PASSWORD: 123456
+#    ports:
+#      - '3306:3306'
+
+  elasticsearch:
+    image: elasticsearch:7.5.0
+    ports:
+      - '9200:9200'
+      - '9300:9300'
+    environment:
+      discovery.type: single-node

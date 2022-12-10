@@ -1,0 +1,41 @@
+# Dikkat: account-service projesiyle account-service.yml aynı isimde olması gerekiyor
+
+server:
+  port: 8502
+
+# application name
+spring:
+  application:
+    name: search-service
+
+  # zipkin application seviyesinde
+  zipkin:
+    base-url:http//localhost:9411/
+
+  datasource:
+    url: jdbc:h2:mem:mydb
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/blogDB
+#    username: hamit
+#    password: 123456
+#  jpa:
+#    database: mysql
+#    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+#    hibernate:
+#      ddl-auto: update
+
+
+
+# eureka haberder olması icin
+eureka:
+  client:
+    instance:
+      hostname: localhost
+    serviceUrl:
+      defaultZone: http://localhost:8500/eureka/
